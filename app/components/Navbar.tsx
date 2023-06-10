@@ -67,7 +67,7 @@ export const Navbar = () => {
               </li>
 
               <li className="flex items-center justify-center text-2xl ">
-                <Link href="/blogg" onClick={handleMenuClose}>
+                <Link href="/blog" onClick={handleMenuClose}>
                   Blogg
                 </Link>
               </li>

@@ -8,7 +8,7 @@ export const AboutSection = () => {
   useFadeInOutOnScroll(ref);
   return (
     <section
-      className="min-h-[calc(100vh-65px)] transition-opacity duration-500 "
+      className="min-h-[calc(100vh-65px)] opacity-0 transition-opacity duration-500"
       ref={ref}
     >
       <p className="text-md text-gray-500 xl:text-xl">Information</p>

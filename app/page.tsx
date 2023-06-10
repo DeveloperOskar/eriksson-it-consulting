@@ -6,13 +6,12 @@ import { ProjectsSection } from "@/app/components/index/ProjectsSection";
 import { AboutSection } from "@/app/components/index/AboutSection";
 import { BlogSection } from "@/app/components/index/BlogSection";
 import { Hero } from "@/app/components/index/Hero";
+import ContactSection from "./components/index/ContactSection";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-
-      <main className="container mx-auto px-4">
+      <main className="container mx-auto snap-y snap-proximity px-4">
         <Hero />
 
         <Divider />
@@ -26,6 +25,10 @@ export default function Home() {
         <Divider id="about" />
 
         <AboutSection />
+
+        <Divider id="about" />
+
+        <ContactSection />
       </main>
 
       <Footer />
