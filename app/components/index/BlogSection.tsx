@@ -1,22 +1,8 @@
-"use client";
-
-import { useFadeInOutOnScroll } from "@/app/hooks/useFadeInOutOnScroll";
-import { useRef } from "react";
+import IndexSection from "./IndexSection";
 
 export const BlogSection = () => {
-  const blogSection = useRef<HTMLDivElement | null>(null);
-  useFadeInOutOnScroll(blogSection);
-
   return (
-    <section
-      ref={blogSection}
-      className="min-h-[calc(100vh-65px)] opacity-0 transition-opacity duration-500 "
-    >
-      <p className="text-md text-gray-500 xl:text-xl">Latest article</p>
-      <h1 className="text-2xl font-bold uppercase tracking-wide lg:text-3xl xl:text-4xl">
-        Blogg
-      </h1>
-
+    <IndexSection subTitle={"Latest article"} title={"Blogg"}>
       <p className="text-md mt-4 text-gray-500 xl:text-lg">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis deleniti
         asperiores mollitia natus voluptatibus voluptates? Quaerat deserunt
@@ -37,6 +23,6 @@ export const BlogSection = () => {
         Hitta mer att läsa
         <span className="font-bold text-black underline">här</span>
       </p>
-    </section>
+    </IndexSection>
   );
 };
