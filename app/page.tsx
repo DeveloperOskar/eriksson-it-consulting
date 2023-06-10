@@ -23,7 +23,7 @@ export default function Home() {
 
         <ProjectsSection />
 
-        <Divider />
+        <Divider id="about" />
 
         <AboutSection />
       </main>

@@ -1,92 +1,96 @@
 "use client";
 
-// import { Portal } from "solid-js/web";
-// import { createSignal } from "solid-js";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createClasses } from "../utils/layout";
+import Link from "next/link";
 
 export const Navbar = () => {
+  const overlay = useRef<HTMLDivElement>(null);
+  const menu = useRef<HTMLDivElement>(null);
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuOpen = () => {
-    //   document.body.style.overflow = "hidden";
-    //   setShowMenu(true);
-    //   setTimeout(() => {
-    //     const overlay = document.querySelector("#menu-overlay");
-    //     overlay.classNameList.replace("bg-opacity-0", "bg-opacity-40");
-    //     const menu = document.querySelector("#main-menu");
-    //     menu.classNameList.replace("translate-x-[-100vw]", "translate-x-[0vw]");
-    //   }, 20);
-    // };
-    // const handleMenuClose = () => {
-    //   document.body.style.overflow = "auto";
-    //   const menu = document.querySelector("#main-menu");
-    //   const overlay = document.querySelector("#menu-overlay");
-    //   overlay.classNameList.replace("bg-opacity-40", "bg-opacity-0");
-    //   menu.classNameList.replace("translate-x-[0vw]", "translate-x-[-100vw]");
-    //   setTimeout(() => {
-    //     setShowMenu(false);
-    //   }, 350);
+    document.body.style.overflow = "hidden";
+    setShowMenu(true);
+    setTimeout(() => {
+      overlay.current!.classList.replace("bg-opacity-0", "bg-opacity-40");
+      menu.current?.classList.replace(
+        "translate-x-[-100vw]",
+        "translate-x-[0vw]"
+      );
+    }, 20);
+  };
+  const handleMenuClose = () => {
+    document.body.style.overflow = "auto";
+
+    overlay.current?.classList.replace("bg-opacity-40", "bg-opacity-0");
+    menu.current?.classList.replace(
+      "translate-x-[0vw]",
+      "translate-x-[-100vw]"
+    );
+    setTimeout(() => {
+      setShowMenu(false);
+    }, 350);
   };
 
   return (
     <>
-      {/* <Show when={showMenu()}>
-        <Portal>
-          <div
-            id="menu-overlay"
-            className="fixed left-0 top-0 z-50 h-full w-full bg-black bg-opacity-40 transition-all duration-200"
-            onClick={handleMenuClose}
+      {showMenu && (
+        <div
+          ref={overlay}
+          id="menu-overlay"
+          className="fixed left-0 top-0 z-50 h-full w-full bg-black bg-opacity-40 transition-all duration-200"
+          onClick={handleMenuClose}
+        >
+          <nav
+            ref={menu}
+            id="main-menu"
+            className={createClasses(
+              "flex h-full w-full translate-x-[-100vw] flex-col items-center bg-white p-8 transition-all duration-200 lg:w-1/2 xl:w-1/3"
+            )}
           >
-            <nav
-              id="main-menu"
-              className={createClasses(
-                "flex h-full w-full translate-x-[-100vw] flex-col items-center bg-white p-8 transition-all duration-200 lg:w-1/2 xl:w-1/3"
-              )}
-            >
-              <h1 className="mb-6 text-center text-2xl font-bold uppercase">
-                Menu
-              </h1>
+            <h1 className="mb-6 text-center text-2xl font-bold uppercase">
+              Menu
+            </h1>
 
-              <ul className="flex flex-col gap-12 ">
-                <li className="flex items-center justify-center text-2xl ">
-                  <a href="/" onClick={handleMenuClose}>
-                    Start
-                  </a>
-                </li>
+            <ul className="flex flex-col gap-12 ">
+              <li className="flex items-center justify-center text-2xl ">
+                <Link href="/" onClick={handleMenuClose}>
+                  Start
+                </Link>
+              </li>
 
-                <li className="flex items-center justify-center text-2xl ">
-                  <a href="/#about" onClick={handleMenuClose}>
-                    Om mig
-                  </a>
-                </li>
+              <li className="flex items-center justify-center text-2xl ">
+                <a href="/#about" onClick={handleMenuClose}>
+                  Om mig
+                </a>
+              </li>
 
-                <li className="flex items-center justify-center text-2xl ">
-                  <a href="/blogg" onClick={handleMenuClose}>
-                    Blogg
-                  </a>
-                </li>
+              <li className="flex items-center justify-center text-2xl ">
+                <Link href="/blogg" onClick={handleMenuClose}>
+                  Blogg
+                </Link>
+              </li>
 
-                <li className="flex items-center justify-center text-2xl ">
-                  <a href="/projects" onClick={handleMenuClose}>
-                    Projekt
-                  </a>
-                </li>
+              <li className="flex items-center justify-center text-2xl ">
+                <a href="/projects" onClick={handleMenuClose}>
+                  Projekt
+                </a>
+              </li>
 
-                <li className="flex items-center justify-center text-2xl ">
-                  <a href="/" onClick={handleMenuClose}>
-                    Kontakta mig
-                  </a>
-                </li>
-              </ul>
+              <li className="flex items-center justify-center text-2xl ">
+                <Link href="/" onClick={handleMenuClose}>
+                  Kontakta mig
+                </Link>
+              </li>
+            </ul>
 
-              <button className="mt-auto text-2xl" onClick={handleMenuClose}>
-                Stäng
-              </button>
-            </nav>
-          </div>
-        </Portal>
-      </Show> */}
+            <button className="mt-auto text-2xl" onClick={handleMenuClose}>
+              Stäng
+            </button>
+          </nav>
+        </div>
+      )}
 
       <nav className="sticky top-0 z-50 flex items-center border-b bg-white px-4 py-3">
         <div className="flex items-center gap-2">

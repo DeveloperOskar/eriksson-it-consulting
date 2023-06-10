@@ -10,7 +10,7 @@ export const BlogSection = () => {
   return (
     <section
       ref={blogSection}
-      className="min-h-[calc(100vh-65px)] transition-opacity duration-500 lg:flex lg:flex-row-reverse lg:items-center"
+      className="min-h-[calc(100vh-65px)] transition-opacity duration-500 "
     >
       <p className="text-md text-gray-500 xl:text-xl">Latest article</p>
       <h1 className="text-2xl font-bold uppercase tracking-wide lg:text-3xl xl:text-4xl">

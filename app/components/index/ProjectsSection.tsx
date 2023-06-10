@@ -8,7 +8,7 @@ export const ProjectsSection = () => {
   useFadeInOutOnScroll(ref);
   return (
     <section
-      className="min-h-[calc(100vh-65px)] transition-opacity duration-500 lg:flex lg:flex-row-reverse lg:items-center"
+      className="min-h-[calc(100vh-65px)] transition-opacity duration-500 "
       ref={ref}
     >
       <p className="text-md text-gray-500 xl:text-xl">Senaste</p>
