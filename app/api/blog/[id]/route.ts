@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-static";
-//fsd
+
 export const GET = async (
   request: Request,
   { params }: { params: { id: string } }
