@@ -2,7 +2,7 @@ import React from "react";
 import { Database } from "@/app/types/supabase";
 import Link from "next/link";
 
-const Blog = async () => {
+export default async function Blog() {
   const response = await fetch("http://localhost:3000/api/blog", {
     method: "GET",
   });
@@ -39,6 +39,4 @@ const Blog = async () => {
       </main>
     </div>
   );
-};
-
-export default Blog;
+}
