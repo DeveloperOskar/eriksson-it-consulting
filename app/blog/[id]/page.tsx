@@ -9,6 +9,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       revalidate: 3600,
     },
   });
+
   const blog =
     (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];
 

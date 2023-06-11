@@ -9,6 +9,9 @@ const Page = async () => {
       revalidate: 3600,
     },
   });
+
+  if (!response.ok) return <div>404</div>;
+
   const data =
     (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];
 
