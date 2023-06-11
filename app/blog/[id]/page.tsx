@@ -2,9 +2,12 @@ import { Database } from "@/app/types/supabase";
 import Link from "next/link";
 import React from "react";
 
-export default async function Blog({ params }: { params: { id: string } }) {
-  const response = await fetch("/api/blog/" + params.id, {
+const Page = async ({ params }: { params: { id: string } }) => {
+  const response = await fetch(process.env.ORIGIN + "/api/blog/" + params.id, {
     method: "GET",
+    next: {
+      revalidate: 3600,
+    },
   });
   const blog =
     (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];
@@ -45,4 +48,6 @@ export default async function Blog({ params }: { params: { id: string } }) {
       <p>{blog[0].text}</p>
     </main>
   );
-}
+};
+
+export default Page;
