@@ -3,7 +3,7 @@ import { Database } from "@/app/types/supabase";
 import Link from "next/link";
 
 export default async function Blogs() {
-  const response = await fetch("http://localhost:3000/api/blog", {
+  const response = await fetch("/api/blog", {
     method: "GET",
   });
   const data =
