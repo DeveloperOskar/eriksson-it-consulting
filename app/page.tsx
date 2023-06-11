@@ -26,12 +26,10 @@ export default function Home() {
 
         <AboutSection />
 
-        <Divider id="about" />
+        <Divider id="contact" />
 
         <ContactSection />
       </main>
-
-      <Footer />
     </>
   );
 }
