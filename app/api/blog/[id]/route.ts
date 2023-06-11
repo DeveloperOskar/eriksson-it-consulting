@@ -1,7 +1,9 @@
 import { Database } from "@/app/types/supabase";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/dist/client/components/headers";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+
+export const dynamic = "force-static";
 
 export const GET = async (
   request: Request,
