@@ -1,5 +1,5 @@
 import React from "react";
-import { Database } from "../types/supabase";
+import { Database } from "@/app/types/supabase";
 import Link from "next/link";
 
 const Blog = async () => {
