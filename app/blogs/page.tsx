@@ -2,7 +2,7 @@ import React from "react";
 import { Database } from "@/app/types/supabase";
 import Link from "next/link";
 
-export async function Blog() {
+export default async function Blogs() {
   const response = await fetch("http://localhost:3000/api/blog", {
     method: "GET",
   });
