@@ -5,9 +5,6 @@ import React from "react";
 const Blog = async ({ params }: { params: { id: string } }) => {
   const response = await fetch("http://localhost:3000/api/blog/" + params.id, {
     method: "GET",
-    next: {
-      revalidate: 3600, //1 hour
-    },
   });
   const blog =
     (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];

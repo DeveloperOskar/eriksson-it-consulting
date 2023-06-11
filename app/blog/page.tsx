@@ -5,9 +5,6 @@ import Link from "next/link";
 const Blog = async () => {
   const response = await fetch("http://localhost:3000/api/blog", {
     method: "GET",
-    next: {
-      revalidate: 3600, //1 hour
-    },
   });
   const data =
     (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];
