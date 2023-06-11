@@ -1,11 +1,24 @@
+import { Database } from "@/app/types/supabase";
 import Link from "next/link";
 import React from "react";
 
+type Blog = Database["public"]["Tables"]["blogs"]["Row"][];
+
 const Blog = async ({ params }: { params: { id: string } }) => {
-  const response = await fetch("http://localhost:3000/api/blog/" + params.id, {
-    method: "GET",
-  });
-  const blog = (await response.json()) as any[];
+  let blog: Blog = [];
+  try {
+    const response = await fetch(
+      "http://localhost:3000/api/blog/" + params.id,
+      {
+        method: "GET",
+      }
+    );
+    const blog = (await response.json()) as Blog[];
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (blog.length === 0) return <div>Blog not found</div>;
 
   return (
     <main className="container mx-auto flex min-h-[calc(100vh-65px)] flex-col gap-6 px-4 py-4 lg:px-0">

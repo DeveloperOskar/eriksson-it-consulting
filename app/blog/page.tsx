@@ -1,11 +1,13 @@
 import React from "react";
+import { Database } from "@/app/types/supabase";
 import Link from "next/link";
 
-export default async function Blog() {
+export async function Blog() {
   const response = await fetch("http://localhost:3000/api/blog", {
     method: "GET",
   });
-  const data = (await response.json()) as any[];
+  const data =
+    (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];
 
   return (
     <div className="container mx-auto flex flex-col gap-6 ">
