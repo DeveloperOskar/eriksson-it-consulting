@@ -1,27 +1,33 @@
+import { Database } from "@/app/types/supabase";
 import IndexSection from "./IndexSection";
+import Link from "next/link";
 
-export const BlogSection = () => {
+interface Props {
+  latestBlog: Database["public"]["Tables"]["blogs"]["Row"];
+}
+
+export const BlogSection: React.FC<Props> = ({ latestBlog }) => {
   return (
-    <IndexSection subTitle={"Latest article"} title={"Blogg"}>
+    <IndexSection subTitle={"Latest article"} title={latestBlog.name}>
       <p className="text-md mt-4 text-gray-500 xl:text-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis deleniti
-        asperiores mollitia natus voluptatibus voluptates? Quaerat deserunt
-        placeat ratione esse ullam eligendi numquam ipsa nihil tenetur, id, fuga
-        excepturi rerum. Quaerat deserunt placeat ratione esse ullam eligendi
-        numquam ipsa nihil tenetur, id, fuga excepturi rerum. Lorem ipsum, dolor
-        sit amet consectetur adipisicing elit.
+        {latestBlog.text}...
       </p>
 
-      <video height="auto" width="100%" controls className="mt-6">
-        <source
-          src="https://www.youtube.com/embed/g5V6koptSXs"
-          type="video/mp4"
-        />
-      </video>
+      <iframe
+        className=" mx-auto mt-6 aspect-video w-full  lg:max-w-[70%] "
+        src="https://www.youtube.com/embed/rtgjFEJaFI8"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      ></iframe>
 
-      <p className="text-md mt-2 text-gray-500 xl:text-lg">
-        Hitta mer att läsa
-        <span className="font-bold text-black underline">här</span>
+      <p className="mt-2 text-sm text-gray-500 xl:text-lg">
+        Läs hela artikeln{" "}
+        <Link
+          href={"/blog/" + latestBlog.id}
+          className="font-bold text-black underline"
+        >
+          här
+        </Link>
       </p>
     </IndexSection>
   );

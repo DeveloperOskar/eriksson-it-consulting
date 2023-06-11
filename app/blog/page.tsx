@@ -1,6 +1,7 @@
 import React from "react";
 import { Database } from "@/app/types/supabase";
 import Link from "next/link";
+import BackButton from "../components/BackButton";
 
 const Page = async () => {
   const response = await fetch(process.env.ORIGIN + "/api/blog", {
@@ -16,8 +17,10 @@ const Page = async () => {
     (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];
 
   return (
-    <div className="container mx-auto flex flex-col gap-6 ">
-      <main className="p-4 lg:px-0">
+    <div className="container mx-auto flex flex-col gap-6 p-4 lg:px-0">
+      <BackButton href="/" />
+
+      <main>
         <h1 className=" text-2xl font-bold uppercase tracking-wide lg:text-3xl xl:text-4xl">
           Blog
         </h1>
