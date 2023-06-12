@@ -39,7 +39,7 @@ export const Navbar = () => {
         <div
           ref={overlay}
           id="menu-overlay"
-          className="fixed left-0 top-0 z-50 h-full w-full bg-black bg-opacity-40 transition-all duration-200"
+          className="fixed left-0 top-0 z-[60] h-full w-full bg-black bg-opacity-40 transition-all duration-200"
           onClick={handleMenuClose}
         >
           <nav
