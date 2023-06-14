@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <main className="container mx-auto snap-y snap-proximity px-4">
+      <main className="container mx-auto snap-y snap-proximity px-4 ">
         <Hero />
 
         <Divider />

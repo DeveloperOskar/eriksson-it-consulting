@@ -37,7 +37,7 @@ const ContactSection = () => {
         qui est?
       </p>
 
-      <div className="mt-6 rounded-lg border border-gray-200 p-6 shadow ">
+      <div className="mx-auto mt-10 max-w-[1000px] rounded-lg border border-gray-200 p-6 shadow">
         <form action={handleSubmit} className="flex flex-col gap-8">
           <Input
             icon="email"

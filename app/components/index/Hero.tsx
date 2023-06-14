@@ -12,11 +12,14 @@ export const Hero = () => {
       ref={hero}
     >
       <img
+        sizes="(max-width: 1024px) 100vw, 50vw"
         id="hero-img"
-        srcSet="hero_sm.webp 300w, hero_md.webp 700w, hero_lg.webp 1000w, hero_xl.webp 2000w"
-        className="mx-auto min-h-[300px] w-auto min-w-[300px] grow animate-fade-in"
-        src={"/hero_sm.webp"}
-        alt="profile picture"
+        srcSet="hero_sm.webp 380w, 
+        hero_md.webp 600w, 
+        hero_lg.webp 1000w"
+        className="mx-auto min-h-[300px] w-auto min-w-[300px] grow animate-fade-in md:max-h-[50vh] lg:max-h-none 2xl:pr-20"
+        src={"hero_xl.webp"}
+        alt="a photo of Oskar Eriksson"
         width={300}
         height={300}
       />
