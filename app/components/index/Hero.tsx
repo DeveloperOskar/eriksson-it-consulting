@@ -17,7 +17,7 @@ export const Hero = () => {
         srcSet="hero_sm.webp 380w, 
         hero_md.webp 600w, 
         hero_lg.webp 1000w"
-        className="mx-auto min-h-[300px] w-auto min-w-[300px] grow animate-fade-in md:max-h-[50vh] lg:max-h-none 2xl:pr-20"
+        className="mx-auto max-h-[60vh] min-h-[300px] w-auto min-w-[300px] grow animate-fade-in lg:max-h-none 2xl:pr-20"
         src={"hero_xl.webp"}
         alt="a photo of Oskar Eriksson"
         width={300}
@@ -25,8 +25,11 @@ export const Hero = () => {
       />
 
       <div className="mt-4 flex shrink animate-fade-in flex-col lg:max-w-[500px] xl:max-w-[650px]">
-        <p className="text-md text-gray-500 xl:text-xl">Oskar Eriksson</p>
-        <h1 className="text-2xl font-bold uppercase tracking-wide lg:text-4xl xl:text-5xl">
+        <p className="text-md text-gray-500 md:text-lg xl:text-xl">
+          Oskar Eriksson
+        </p>
+
+        <h1 className="text-2xl font-bold uppercase tracking-wide md:text-3xl lg:text-4xl xl:text-5xl">
           Eriksson solutions
         </h1>
         <p className="text-md mt-4 text-gray-500 xl:text-lg">

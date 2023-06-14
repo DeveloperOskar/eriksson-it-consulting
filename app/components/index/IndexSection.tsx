@@ -16,8 +16,10 @@ const IndexSection: React.FC<{
       className="min-h-[calc(100vh-65px)] opacity-0 transition-opacity duration-500"
       ref={ref}
     >
-      <p className="text-md text-gray-500 xl:text-xl">{subTitle}</p>
-      <h1 className="text-2xl font-bold uppercase tracking-wide lg:text-3xl xl:text-4xl">
+      <p className="text-md text-gray-500 lg:max-w-[80%] xl:text-xl">
+        {subTitle}
+      </p>
+      <h1 className="text-2xl font-bold uppercase tracking-wide lg:max-w-[80%] lg:text-3xl xl:text-4xl">
         {title}
       </h1>
 

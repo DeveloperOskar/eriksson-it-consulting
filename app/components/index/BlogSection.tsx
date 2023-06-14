@@ -9,7 +9,7 @@ interface Props {
 export const BlogSection: React.FC<Props> = ({ latestBlog }) => {
   return (
     <IndexSection subTitle={"Latest article"} title={latestBlog.name}>
-      <p className="text-md mt-4 text-gray-500 xl:text-lg">
+      <p className="text-md mt-4 text-gray-500 lg:max-w-[80%] xl:text-lg">
         {latestBlog.text}...
       </p>
 

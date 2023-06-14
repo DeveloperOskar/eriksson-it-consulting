@@ -23,6 +23,7 @@ const ContactSection = () => {
         supabaseUrl: process.env.SUPABASE_URL,
       }
     );
+
     await supabase.from("messages").insert({ message, subject, email });
 
     revalidatePath("/");
@@ -30,7 +31,7 @@ const ContactSection = () => {
 
   return (
     <IndexSection subTitle={"Nå mig"} title={"Kontakt"}>
-      <p className="mt-4s">
+      <p className="text-md mt-4 text-gray-500 lg:max-w-[80%] xl:text-lg">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex dignissimos
         consectetur odio corrupti natus, enim amet atque, nemo id eaque
         explicabo quasi voluptatum nam harum unde exercitationem! Cupiditate,
