@@ -7,18 +7,23 @@ import { Hero } from "@/app/components/index/Hero";
 import ContactSection from "./components/index/ContactSection";
 import { Database } from "./types/supabase";
 
+interface IndexResponse {
+  blog: Database["public"]["Tables"]["blogs"]["Row"][];
+  project: Database["public"]["Tables"]["projects"]["Row"][];
+}
+
 export default async function Home() {
-  const response = await fetch(process.env.ORIGIN + "/api/blog", {
+  const response = await fetch(process.env.ORIGIN + "/api/index", {
     method: "GET",
     next: {
       revalidate: 3600,
     },
   });
 
-  if (!response.ok) return <div>404</div>;
+  const { blog, project } = (await response.json()) as IndexResponse;
 
-  const data =
-    (await response.json()) as Database["public"]["Tables"]["blogs"]["Row"][];
+  console.log("blog!!! ", blog);
+  console.log("projects!!! ", project);
 
   return (
     <>
@@ -27,11 +32,11 @@ export default async function Home() {
 
         <Divider />
 
-        <BlogSection latestBlog={data[0]} />
+        <BlogSection latestBlog={blog[0]} />
 
         <Divider />
 
-        <ProjectsSection />
+        <ProjectsSection project={project[0]} />
 
         <Divider id="about" />
 

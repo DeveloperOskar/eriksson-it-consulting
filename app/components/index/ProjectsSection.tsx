@@ -1,9 +1,14 @@
+import { Database } from "@/app/types/supabase";
 import IndexSection from "./IndexSection";
 
-export const ProjectsSection = () => {
+interface Projects {
+  project: Database["public"]["Tables"]["projects"]["Row"];
+}
+
+export const ProjectsSection: React.FC<Projects> = ({ project }) => {
   return (
     <IndexSection subTitle={"Senaste"} title={"Projekt"}>
-      content here
+      {project.name}
     </IndexSection>
   );
 };
