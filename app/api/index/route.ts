@@ -24,6 +24,10 @@ export const GET = async () => {
     .order("created_at", { ascending: false })
     .limit(1);
 
+  const latestProjectUrl = await supabase.storage
+    .from("projects-images")
+    .getPublicUrl("project-placeholder.png").data.publicUrl;
+
   const [blog, project] = await Promise.all([
     latestBlogPromise,
     latestProjectPromise,
@@ -31,6 +35,7 @@ export const GET = async () => {
 
   return NextResponse.json({
     project: project.data,
+    projectLatestImage: latestProjectUrl,
     blog: blog.data,
   });
 };

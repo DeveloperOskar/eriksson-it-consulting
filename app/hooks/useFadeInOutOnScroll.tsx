@@ -20,8 +20,7 @@ export const useFadeInOutOnScroll = (ref: RefObject<HTMLElement>) => {
 
     const screenHeight =
       window.innerHeight || document.documentElement.clientHeight;
-    const twentyPercent = screenHeight * 0.4;
-
+    const twentyPercent = screenHeight * 0.45;
     if (isInViewport(twentyPercent)) {
       ref.current!.style.opacity = "1";
     } else {

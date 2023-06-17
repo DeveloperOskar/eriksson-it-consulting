@@ -10,6 +10,7 @@ import { Database } from "./types/supabase";
 interface IndexResponse {
   blog: Database["public"]["Tables"]["blogs"]["Row"][];
   project: Database["public"]["Tables"]["projects"]["Row"][];
+  projectLatestImage: string;
 }
 
 export default async function Home() {
@@ -20,10 +21,10 @@ export default async function Home() {
     },
   });
 
-  const { blog, project } = (await response.json()) as IndexResponse;
+  const { blog, project, projectLatestImage } =
+    (await response.json()) as IndexResponse;
 
-  console.log("blog!!! ", blog);
-  console.log("projects!!! ", project);
+  console.log("image url: ", projectLatestImage);
 
   return (
     <>
@@ -36,7 +37,10 @@ export default async function Home() {
 
         <Divider />
 
-        <ProjectsSection project={project[0]} />
+        <ProjectsSection
+          project={project[0]}
+          latestImageUrl={projectLatestImage}
+        />
 
         <Divider id="about" />
 
