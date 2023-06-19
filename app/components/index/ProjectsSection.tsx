@@ -1,6 +1,7 @@
 import { Database } from "@/app/types/supabase";
 import IndexSection from "./IndexSection";
 import ForwardButton from "../ForwardButton";
+import Link from "next/link";
 
 interface Projects {
   project: Database["public"]["Tables"]["projects"]["Row"];
@@ -20,10 +21,26 @@ export const ProjectsSection: React.FC<Projects> = ({
       <img
         src={latestImageUrl}
         alt="latest project image"
-        className=" mx-auto my-6"
+        className=" mx-auto my-6 h-[600px] object-contain"
       />
 
-      <ForwardButton href={"projects"} text={"Se alla project"} />
+      <div className="flex flex-col items-center justify-center">
+        <Link
+          href={"projects/" + project.id}
+          className="font-semibold hover:underline"
+        >
+          Read more about {project.name} here
+        </Link>
+
+        <p className="my-3 text-sm text-gray-500  md:text-base">
+          &#8212; OR &#8212;
+        </p>
+        <ForwardButton
+          extraClasses="text-center font-semibold"
+          href={"projects"}
+          text={"See all projects"}
+        />
+      </div>
     </IndexSection>
   );
 };

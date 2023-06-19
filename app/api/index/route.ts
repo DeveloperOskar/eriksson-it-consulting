@@ -3,6 +3,8 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+
 export const GET = async () => {
   const supabase = createRouteHandlerClient<Database>(
     { cookies },
@@ -24,14 +26,14 @@ export const GET = async () => {
     .order("created_at", { ascending: false })
     .limit(1);
 
-  const latestProjectUrl = await supabase.storage
-    .from("projects-images")
-    .getPublicUrl("project-placeholder.png").data.publicUrl;
-
   const [blog, project] = await Promise.all([
     latestBlogPromise,
     latestProjectPromise,
   ]);
+
+  const latestProjectUrl = supabase.storage
+    .from("projects-images")
+    .getPublicUrl(project.data![0].img_name!).data.publicUrl;
 
   return NextResponse.json({
     project: project.data,

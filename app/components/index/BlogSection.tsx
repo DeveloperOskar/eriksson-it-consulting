@@ -21,7 +21,23 @@ export const BlogSection: React.FC<Props> = ({ latestBlog }) => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
 
-      <ForwardButton href={"/blog/" + latestBlog.id} text={"Läs mer här"} />
+      <div className="flex flex-col items-center justify-center">
+        <Link
+          href={"blog/" + latestBlog.id}
+          className="font-semibold hover:underline"
+        >
+          Read: {latestBlog.name} here
+        </Link>
+
+        <p className="my-3 text-sm text-gray-500  md:text-base">
+          &#8212; OR &#8212;
+        </p>
+        <ForwardButton
+          extraClasses="text-center font-semibold"
+          href={"blog"}
+          text={"See all blog posts"}
+        />
+      </div>
     </IndexSection>
   );
 };
