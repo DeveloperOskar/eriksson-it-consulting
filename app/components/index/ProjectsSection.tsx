@@ -14,7 +14,7 @@ export const ProjectsSection: React.FC<Projects> = ({
 }) => {
   return (
     <IndexSection subTitle={"Latest project"} title={project.name || ""}>
-      <p className="text-md mt-4 text-gray-500 lg:max-w-[80%] xl:text-lg">
+      <p className="text-md mt-4 text-gray-500 xl:text-lg">
         {project.text?.substring(0, 600)}...
       </p>
 
@@ -27,9 +27,9 @@ export const ProjectsSection: React.FC<Projects> = ({
       <div className="flex flex-col items-center justify-center">
         <Link
           href={"projects/" + project.id}
-          className="font-semibold hover:underline"
+          className="font-semibold underline hover:text-gray-600"
         >
-          Read more about {project.name} here
+          Read more about {project.name}
         </Link>
 
         <p className="my-3 text-sm text-gray-500  md:text-base">

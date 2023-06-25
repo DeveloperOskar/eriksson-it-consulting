@@ -11,7 +11,7 @@ const ForwardButton: React.FC<{
     <Link
       href={href}
       className={createClasses(
-        "flex items-center gap-1 hover:text-gray-600 ",
+        "flex items-center gap-1 underline hover:text-gray-600 ",
         extraClasses
       )}
     >

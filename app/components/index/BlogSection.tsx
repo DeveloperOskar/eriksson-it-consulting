@@ -10,12 +10,12 @@ interface Props {
 export const BlogSection: React.FC<Props> = ({ latestBlog }) => {
   return (
     <IndexSection subTitle={"Latest article"} title={latestBlog.name}>
-      <p className="text-md mt-4 text-gray-500 lg:max-w-[80%] xl:text-lg">
+      <p className="text-md mt-4 text-gray-500 xl:text-lg">
         {latestBlog.text}...
       </p>
 
       <iframe
-        className=" mx-auto mb-10 mt-6 aspect-video  w-full lg:max-w-[70%]"
+        className=" mx-auto mb-10 mt-6 aspect-video  w-full lg:max-w-[60%]"
         src="https://www.youtube.com/embed/rtgjFEJaFI8"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -24,14 +24,15 @@ export const BlogSection: React.FC<Props> = ({ latestBlog }) => {
       <div className="flex flex-col items-center justify-center">
         <Link
           href={"blog/" + latestBlog.id}
-          className="font-semibold hover:underline"
+          className="font-semibold underline hover:text-gray-600"
         >
-          Read: {latestBlog.name} here
+          {latestBlog.name}
         </Link>
 
         <p className="my-3 text-sm text-gray-500  md:text-base">
           &#8212; OR &#8212;
         </p>
+
         <ForwardButton
           extraClasses="text-center font-semibold"
           href={"blog"}

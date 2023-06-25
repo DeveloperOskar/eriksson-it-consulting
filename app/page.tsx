@@ -6,6 +6,7 @@ import { BlogSection } from "@/app/components/index/BlogSection";
 import { Hero } from "@/app/components/index/Hero";
 import ContactSection from "./components/index/ContactSection";
 import { Database } from "./types/supabase";
+import Testimonials from "./components/index/Testimonials";
 
 interface IndexResponse {
   blog: Database["public"]["Tables"]["blogs"]["Row"][];
@@ -45,6 +46,10 @@ export default async function Home() {
         <Divider id="about" />
 
         <AboutSection />
+
+        <Divider id="contact" />
+
+        <Testimonials />
 
         <Divider id="contact" />
 
